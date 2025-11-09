@@ -1,7 +1,6 @@
 import os
 import json
 from fastapi import FastAPI, UploadFile, File
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -12,7 +11,10 @@ import uvicorn
 # Load environment variables
 load_dotenv()
 
+
+
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
