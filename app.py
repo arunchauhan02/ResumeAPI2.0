@@ -1,6 +1,7 @@
 import os
 import json
 from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -12,6 +13,14 @@ import uvicorn
 load_dotenv()
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[*]
+    allow_creddentials=True,
+    allow_methods=[*]
+    allow_headers=[*]
+)
 
 # Configure Gemini LLM
 llm = ChatGoogleGenerativeAI(
