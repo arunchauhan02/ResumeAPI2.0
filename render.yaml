@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: resume-parser-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run resume_parser_app.py
+    envVars:
+      - key: GOOGLE_API_KEY
+        value: your_google_api_key_here
